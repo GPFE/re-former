@@ -1,0 +1,16 @@
+<%= link_to "homepage", root_path %>
+<% @user.errors.full_messages.each do |message| %>
+<ul>
+    <li><%= message %></li>
+</ul>
+<% end %>
+
+<%= form_with model: @user do |f| %>
+<%= f.label :username, "Name:" %>
+<%= f.text_field :username %>
+<%= f.label :email, "Email:" %>
+<%= f.email_field :email, placeholder: "example@example.com" %>
+<%= f.label :password, "Password:" %>
+<%= f.password_field :password %>
+<%= f.submit %>
+<% end %>
